@@ -28,8 +28,8 @@ test("Check if we get correct total without offer", () => {
         }
     ]
 
-    const product1 = getProduct(1);
-    const correctTotal = product1.price * 2;
+    const product = getProduct(1);
+    const correctTotal = product.price * 2;
 
     expect(total(data)).toBe(correctTotal);
 });
