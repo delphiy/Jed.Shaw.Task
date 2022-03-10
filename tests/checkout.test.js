@@ -1,5 +1,5 @@
-const total = require("./checkout");
-const getProduct = require("./models/product");
+const total = require("../checkout");
+const getProduct = require("../models/product");
 
 test("Check if we get correct total for basket", () => {
     const data = [
@@ -19,7 +19,7 @@ test("Check if we get correct total for basket", () => {
     expect(total(data)).toBe(190);
 });
 
-test("Check if get correct total without offer", () => {
+test("Check if we get correct total without offer", () => {
     const data = [
         {
             id: 1,
