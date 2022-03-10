@@ -1,8 +1,8 @@
 const total = require("./checkout");
+const getProduct = require("./models/product");
 
-//Basket data
-function data() {
-    return [
+test("Check if we get correct total for basket", () => {
+    const data = [
         {
             id: 1,
             productID: 1,
@@ -14,10 +14,22 @@ function data() {
             quantity: 2,
         }
     ]
-}
 
-test("Returns correct total for basket", () => {
-    expect(total(data())).toBe(190);
+
+    expect(total(data)).toBe(190);
 });
 
+test("Check if get correct total without offer", () => {
+    const data = [
+        {
+            id: 1,
+            productID: 1,
+            quantity: 2,
+        }
+    ]
 
+    const product1 = getProduct(1);
+    const correctTotal = product1.price * 2;
+
+    expect(total(data)).toBe(correctTotal);
+});
